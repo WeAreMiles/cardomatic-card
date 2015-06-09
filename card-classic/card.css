@@ -24,6 +24,11 @@ body {
     padding: 1.5em 2.5em;
     height: 100%;
 }
+
+.wrap img{
+    height: 100%;
+    width: 100%;
+}
 #card-front, #card-inside {
   width: 50%;
   position: absolute;
