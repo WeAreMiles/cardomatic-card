@@ -16,6 +16,23 @@ body {
   color: #FFDFDF;
 }
 
+.background{
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    transform-origin: left;
+-moz-transform-origin: left;
+-webkit-transform-origin: left;
+    transform: rotateZ(-180deg);
+}
+
+.background img{
+    width: 100%;
+}
+
 #card, #card-front, #card-inside {
   height: 340px;
 }
@@ -261,6 +278,11 @@ animation-fill-mode: forwards;
     animation-fill-mode: forwards;
 }
 
+#card-wrapper:hover .background{
+    animation: backgroundAnim 1.5s linear;
+    animation-fill-mode: forwards;
+}
+
 @keyframes envelopeOpen {
      0%
         {
@@ -344,4 +366,26 @@ animation-fill-mode: forwards;
         z-index: 2;
     }
 
+}
+
+@keyframes backgroundAnim {
+    0%{
+        opacity: 0;
+        transform: rotateZ(-180deg);
+    }
+
+    25%{
+        opacity: 0.25;
+        transform: rotateZ(-135deg);
+    }
+
+    75%{
+        opacity: 0.75;
+        transform: rotateZ(-45deg);
+    }
+
+    100%{
+        opacity: 1;
+        transform: rotateZ(0deg);
+    }
 }
