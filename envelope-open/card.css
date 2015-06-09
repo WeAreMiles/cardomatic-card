@@ -45,6 +45,12 @@ body {
     -moz-perspective: 5000px;
     -webkit-perspective: 5000px;
     position: relative;
+/*     transition:         transform 1s linear;
+-moz-transition:    -moz-transform 1s linear;
+-webkit-transition: -webkit-transform 1s linear; */
+transform: rotate3d(-7, -6, -4, 60deg);
+-moz-transform: rotate3d(-7, -6, -4, 60deg);
+-webkit-transform: rotate3d(-7, -6, -4, 60deg);
 }
 
 #card h1 {
@@ -186,4 +192,156 @@ footer {
   line-height: 1.6;
   color: #888;
   text-align: center;
+}
+
+.envelope{
+    position: relative;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 150px 241px 0px;
+    border-color: #73C3CC transparent transparent;
+         transform-origin: top;
+    -moz-transform-origin: top;
+ -webkit-transform-origin: top;
+ transition: transform 0.2s linear;
+-moz-transition: transform 0.2s linear;
+-webkit-transition: transform 0.2s linear;
+}
+
+.envelope-container{
+    position: absolute;
+    top: 55px;
+    right: 353px;
+    transform: rotate3d(-7, -6, -4, 60deg);
+    -moz-transform: rotate3d(-7, -6, -4, 60deg);
+    -webkit-transform: rotate3d(-7, -6, -4, 60deg);
+    z-index: 4;
+}
+
+ #card-wrapper{
+/*  transform: rotate3d(-7, -6, -4, 60deg);
+-moz-transform: rotate3d(-7, -6, -4, 60deg);
+-webkit-transform: rotate3d(-7, -6, -4, 60deg); */
+z-index: 1;
+}
+
+.card-container{
+    position: relative;
+    transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    z-index: 3;
+}
+
+#card-wrapper:hover .envelope{
+    animation: envelopeOpen 0.2s linear;
+    animation-fill-mode: forwards;
+}
+
+#card-wrapper:hover .envelope-container{
+    animation: envelopeContainerZindex 0.2s linear;
+    animation-fill-mode: forwards;
+}
+
+#card-wrapper:hover #card{
+animation: cardGrow 2s linear;
+animation-fill-mode: forwards;
+
+}
+
+.square{
+    height: 200px;
+    width: 200px;
+    background: #000;
+}
+
+#card-wrapper:hover .card-container{
+    animation: cardMove 1.5s cubic-bezier(.17,.67,.83,.67);
+    animation-fill-mode: forwards;
+}
+
+@keyframes envelopeOpen {
+     0%
+        {
+            transform: rotateX(0deg);
+        }
+
+     100%
+         {
+             transform: rotateX(180deg);
+         }
+}
+
+@keyframes cardMove {
+    0%
+        {
+            transform: translate3d(0px);
+            -moz-transform: tanslate3d(0px);
+            -webkit-transform: tanslate3d(0px);
+        }
+
+    10%
+        {
+            transform: translate3d(-0px,-0px,0px);
+            -moz-transform: tanslate3d(-0px,-0px,0px);
+            -webkit-transform: tanslate3d(-0px,-0px,0px);
+        }
+
+    25%
+        {
+            transform: translate3d(-190px,-250px,30px);
+            -moz-transform: tanslate3d(-190px,-250px,30px);
+            -webkit-transform: tanslate3d(-190px,-250px,30px);
+        }
+
+    100%
+        {
+            transform: translate3d(-50px,50px,0px);
+            -moz-transform: tanslate3d(-50px,50px,0px);
+            -webkit-transform: tanslate3d(-50px,50px,0px);
+        }
+}
+
+@keyframes cardGrow {
+    0%    {
+            transform: rotate3d(-7, -6, -4, 60deg);
+           -moz-transform: rotate3d(-7, -6, -4, 60deg);
+           -webkit-transform: rotate3d(-7, -6, -4, 60deg);
+          }
+
+    30%   {
+            transform: rotate3d(-7, -6, -4, 60deg);
+           -moz-transform: rotate3d(-7, -6, -4, 60deg);
+           -webkit-transform: rotate3d(-7, -6, -4, 60deg);
+          }
+
+    80%  {
+            transform: rotate3d(0, 0, 0, 0deg);
+            -moz-transform: rotate3d(0, 0, 0, 0deg);
+            -webkit-transform: rotate3d(0, 0, 0, 0deg);
+          }
+
+    100%
+        {
+            transform: rotate3d(0, 0, 0, 0deg);
+            -moz-transform: rotate3d(0, 0, 0, 0deg);
+            -webkit-transform: rotate3d(0, 0, 0, 0deg);
+        }
+}
+
+@keyframes envelopeContainerZindex {
+
+    0%{
+        z-index: 4;
+    }
+
+    50%{
+        z-index: 4;
+    }
+
+    100%{
+        z-index: 2;
+    }
+
 }
