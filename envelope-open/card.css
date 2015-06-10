@@ -8,8 +8,11 @@
 
 body {
   background: #E5E5E5;
-  background-image: url("/gray-floral.png");
-  padding: 50px;
+  margin: 0px;
+}
+
+#card-wrapper{
+    margin-top: 200px;
 }
 
 #card-front {
@@ -27,10 +30,12 @@ body {
 -moz-transform-origin: left;
 -webkit-transform-origin: left;
     transform: rotateZ(-180deg);
+    z-index: 2;
 }
 
 .background img{
     width: 100%;
+    height: 100%;
 }
 
 #card, #card-front, #card-inside {
@@ -41,6 +46,12 @@ body {
     padding: 1.5em 2.5em;
     height: 100%;
 }
+
+.wrap img{
+    height: 100%;
+    width: 100%;
+}
+
 #card-front, #card-inside {
   width: 50%;
   position: absolute;
@@ -50,6 +61,12 @@ body {
 
 #card-inside .wrap {
     background: #FFEFEF;
+}
+
+#card-wrapper{
+    transition:  all 0.4s linear;
+    -moz-transition:  all 0.4s linear;
+    -webkit-transition:  all 0.4s linear;
 }
 
 #card {
@@ -62,12 +79,9 @@ body {
     -moz-perspective: 5000px;
     -webkit-perspective: 5000px;
     position: relative;
-/*     transition:         transform 1s linear;
--moz-transition:    -moz-transform 1s linear;
--webkit-transition: -webkit-transform 1s linear; */
-transform: rotate3d(-7, -6, -4, 60deg);
--moz-transform: rotate3d(-7, -6, -4, 60deg);
--webkit-transform: rotate3d(-7, -6, -4, 60deg);
+    transform: rotate3d(-7, -6, -4, 60deg);
+    -moz-transform: rotate3d(-7, -6, -4, 60deg);
+    -webkit-transform: rotate3d(-7, -6, -4, 60deg);
 }
 
 #card h1 {
@@ -145,51 +159,42 @@ p.signed {
   cursor: pointer;
 }
 
-#card-front button:hover,
-#card-front button:focus {
-  background: #F22;
-}
-
-#next2 {
-  display: none;
-}
-
-#card.open-fully #close,
-#card-open-half #close {
-  display: inline;
-}
-
-#card.open-fully #open {
-  display: none;
+#card.open-half #card-front,
+#card.close-half #card-front{
+            transform: rotateY(-90deg);
+       -moz-transform: rotateY(-90deg);
+    -webkit-transform: rotateY(-90deg);
 }
 
 #card.open-half #card-front .wrap {
     background-color: rgba(0, 0, 0, .5);
 }
 
-#card.open-half #card-inside,
-#card.close-half #card-inside{
-    transform: rotateY(0deg);
--moz-transform: rotateY(0deg);
--webkit-transform: rotateY(0deg);
+#card.open-fully #card-front .wrap {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+#card.open-fully2 #card-front .wrap {
+    background-color: rgba(0, 0, 0, 0);
 }
 
 #card.open-fully #card-front,
-#card.close-half #card-front {
+#card.close-half #card-front,
+#card.open-fully2 #card-front {
   background: #FFEFEF;
 }
 
 
 #card.open-fully #card-front {
-    transform: rotateY(-110deg);
-    -moz-transform: rotateY(-110deg);
-    -webkit-transform: rotateY(-110deg);
+    transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -webkit-transform: rotateY(-180deg);
 }
 
 #card.open-fully #card-inside{
-    transform: rotateY(0deg);
-    -moz-transform: rotateY(0deg);
-    -webkit-transform: rotateY(0deg);
+    transform: rotateY(-70deg);
+    -moz-transform: rotateY(-70deg);
+    -webkit-transform: rotateY(-70deg);
 }
 
 #card.open-fully #card-front .wrap {
@@ -197,9 +202,12 @@ p.signed {
 }
 
 #card.open-fully #card-front .wrap *,
-#card.close-half #card-front .wrap * {
+#card.close-half #card-front .wrap *,
+#card.open-fully2 #card-front .wrap *,
+#card.open-half2 #card-front .wrap * {
    display: none;
 }
+
 
 footer {
   max-width: 500px;
@@ -228,7 +236,7 @@ footer {
 
 .envelope-container{
     position: absolute;
-    top: 55px;
+    top: 197px;
     right: 353px;
     transform: rotate3d(-7, -6, -4, 60deg);
     -moz-transform: rotate3d(-7, -6, -4, 60deg);
@@ -251,37 +259,88 @@ z-index: 1;
     z-index: 3;
 }
 
-#card-wrapper:hover .envelope{
+ .envelope{
     animation: envelopeOpen 0.2s linear;
     animation-fill-mode: forwards;
 }
 
-#card-wrapper:hover .envelope-container{
+ .envelope-container{
     animation: envelopeContainerZindex 0.2s linear;
     animation-fill-mode: forwards;
 }
 
-#card-wrapper:hover #card{
+ #card{
 animation: cardGrow 2s linear;
 animation-fill-mode: forwards;
 
 }
 
-.square{
+ .square{
     height: 200px;
     width: 200px;
     background: #000;
 }
 
-#card-wrapper:hover .card-container{
+ .card-container{
     animation: cardMove 1.5s cubic-bezier(.17,.67,.83,.67);
     animation-fill-mode: forwards;
 }
 
-#card-wrapper:hover .background{
+ .background{
     animation: backgroundAnim 1.5s linear;
     animation-fill-mode: forwards;
 }
+
+.hide {
+  display: none;
+}
+
+#card.open-half2 #card-front{
+        transform: rotateY(-145deg);
+   -moz-transform: rotateY(-145deg);
+-webkit-transform: rotateY(-145deg);
+}
+
+#card.open-half2 #card-inside,
+#card.close-half #card-inside{
+    transform: rotateY(0deg);
+-moz-transform: rotateY(0deg);
+-webkit-transform: rotateY(0deg);
+}
+
+#card.open-fully2 #card-front {
+    transform: rotateY(-110deg);
+    -moz-transform: rotateY(-110deg);
+    -webkit-transform: rotateY(-110deg);
+}
+
+#card.open-fully2 #card-inside{
+    transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
+}
+
+#card.open-fully2 #card-front {
+  background: #FFEFEF;
+}
+
+#card.open-half2 #card-front {
+    background: #FFEFEF;
+}
+
+.move1{
+    margin-left: 500px;
+}
+
+.move2{
+    margin-left: 0px;
+}
+
+.controls{
+    z-index: 999;
+    position:absolute;
+}
+
 
 @keyframes envelopeOpen {
      0%
