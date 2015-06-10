@@ -1,25 +1,20 @@
 @import url(http://fonts.googleapis.com/css?family=Nobile:400italic,700italic);
 @import url(http://fonts.googleapis.com/css?family=Dancing+Script);
 * {
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
-
 body {
-  background: #E5E5E5;
-  margin: 0px;
+    background: #E5E5E5;
+    margin: 0px;
 }
-
-#card-wrapper{
+#card-wrapper {
     margin-top: 200px;
+    overflow: none;
 }
 
-#card-front {
-  color: #FFDFDF;
-}
-
-.background{
+.background {
     height: 100%;
     width: 100%;
     z-index: -1;
@@ -27,48 +22,43 @@ body {
     position: absolute;
     top: 0px;
     transform-origin: left;
--moz-transform-origin: left;
--webkit-transform-origin: left;
+    -moz-transform-origin: left;
+    -webkit-transform-origin: left;
     transform: rotateZ(-180deg);
     z-index: 2;
 }
-
-.background img{
+.background img {
     width: 100%;
     height: 100%;
 }
-
 #card, #card-front, #card-inside {
-  height: 340px;
+    height: 340px;
 }
-
 .wrap {
-    padding: 1.5em 2.5em;
     height: 100%;
 }
 
-.wrap img{
+#front-inside{
+    background: url('http://placehold.it/480x340') no-repeat;
+}
+
+.wrap img {
     height: 100%;
     width: 100%;
 }
-
 #card-front, #card-inside {
-  width: 50%;
-  position: absolute;
-  left: 50%;
+    width: 50%;
+    position: absolute;
+    left: 50%;
 }
-
-
 #card-inside .wrap {
     background: #FFEFEF;
 }
-
-#card-wrapper{
-    transition:  all 0.4s linear;
-    -moz-transition:  all 0.4s linear;
-    -webkit-transition:  all 0.4s linear;
+#card-wrapper {
+    transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -webkit-transition: all 0.4s linear;
 }
-
 #card {
     max-width: 960px;
     margin: 0 auto;
@@ -83,7 +73,6 @@ body {
     -moz-transform: rotate3d(-7, -6, -4, 60deg);
     -webkit-transform: rotate3d(-7, -6, -4, 60deg);
 }
-
 #card h1 {
     text-align: center;
     font-family: 'Nobile', sans-serif;
@@ -91,7 +80,6 @@ body {
     font-size: 70px;
     color: #FFF;
 }
-
 #card-inside {
     font-size: 1.1em;
     line-height: 1.4;
@@ -99,99 +87,71 @@ body {
     color: #331717;
     font-style: italic;
 }
-
 p {
     margin-top: 1em;
 }
-
 p:first-child {
     margin-top: 0;
 }
-
 p.signed {
     margin-top: 1.5em;
     text-align: center;
     font-family: 'Dancing Script', sans-serif;
     font-size: 1.5em;
 }
-
 #card-front {
-    background-color: #FF5555;
-    background-image: linear-gradient(top, #FF5555 0%, #FF7777 100%);
-    background-image: -moz-linear-gradient(top, #FF5555 0%, #FF7777 100%);
-    background-image: -webkit-linear-gradient(top, #FF5555 0%, #FF7777 100%);
-            transform-origin: left;
-       -moz-transform-origin: left;
+    transform-origin: left;
+    -moz-transform-origin: left;
     -webkit-transform-origin: left;
-            transition:         transform 0.2s linear;
-       -moz-transition:    -moz-transform 0.2s linear;
+    transition: transform 0.2s linear;
+    -moz-transition: -moz-transform 0.2s linear;
     -webkit-transition: -webkit-transform 0.2s linear;
     position: relative;
 }
-
 #card-inside {
-                transform-origin: left;
-           -moz-transform-origin: left;
-        -webkit-transform-origin: left;
-            transition:         transform 0.2s linear;
-       -moz-transition:    -moz-transform 0.2s linear;
+    transform-origin: left;
+    -moz-transform-origin: left;
+    -webkit-transform-origin: left;
+    transition: transform 0.2s linear;
+    -moz-transition: -moz-transform 0.2s linear;
     -webkit-transition: -webkit-transform 0.2s linear;
 }
 
-#card-front .wrap {
-            transition: background 1s linear;
-       -moz-transition: background 1s linear;
-    -webkit-transition: background 1s linear;
-}
 
 #card-front button {
-  position: absolute;
-  bottom: 1em;
-  right: -12px;
-  background: #F44;
-  color: #FFF;
-  font-family: 'Nobile', sans-serif;
-  font-style: italic;
-  font-weight: bold;
-  font-size: 1.5em;
-  padding: .5em;
-  border: none;
-  cursor: pointer;
+    position: absolute;
+    bottom: 1em;
+    right: -12px;
+    background: #F44;
+    color: #FFF;
+    font-family: 'Nobile', sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 1.5em;
+    padding: .5em;
+    border: none;
+    cursor: pointer;
 }
-
-#card.open-half #card-front,
-#card.close-half #card-front{
-            transform: rotateY(-90deg);
-       -moz-transform: rotateY(-90deg);
+#card.open-half #card-front, #card.close-half #card-front {
+    transform: rotateY(-90deg);
+    -moz-transform: rotateY(-90deg);
     -webkit-transform: rotateY(-90deg);
 }
-
 #card.open-half #card-front .wrap {
     background-color: rgba(0, 0, 0, .5);
 }
-
 #card.open-fully #card-front .wrap {
     background-color: rgba(0, 0, 0, 0);
 }
-
 #card.open-fully2 #card-front .wrap {
     background-color: rgba(0, 0, 0, 0);
 }
-
-#card.open-fully #card-front,
-#card.close-half #card-front,
-#card.open-fully2 #card-front {
-  background: #FFEFEF;
-}
-
-
 #card.open-fully #card-front {
     transform: rotateY(-180deg);
     -moz-transform: rotateY(-180deg);
     -webkit-transform: rotateY(-180deg);
 }
-
-#card.open-fully #card-inside{
+#card.open-fully #card-inside {
     transform: rotateY(-70deg);
     -moz-transform: rotateY(-70deg);
     -webkit-transform: rotateY(-70deg);
@@ -200,41 +160,33 @@ p.signed {
 #card.open-fully #card-front .wrap {
     background-color: rgba(0, 0, 0, 0);
 }
-
-#card.open-fully #card-front .wrap *,
-#card.close-half #card-front .wrap *,
-#card.open-fully2 #card-front .wrap *,
-#card.open-half2 #card-front .wrap * {
-   display: none;
+#card.open-fully #card-front .wrap *, #card.close-half #card-front .wrap *, #card.open-fully2 #card-front .wrap *, #card.open-half2 #card-front .wrap * {
+    display: none;
 }
-
-
 footer {
-  max-width: 500px;
-  margin: 40px auto;
-  font-family: 'Nobile', sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
-  color: #888;
-  text-align: center;
+    max-width: 500px;
+    margin: 40px auto;
+    font-family: 'Nobile', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #888;
+    text-align: center;
 }
-
-.envelope{
+.envelope {
     position: relative;
     width: 0px;
     height: 0px;
     border-style: solid;
     border-width: 150px 241px 0px;
     border-color: #73C3CC transparent transparent;
-         transform-origin: top;
+    transform-origin: top;
     -moz-transform-origin: top;
- -webkit-transform-origin: top;
- transition: transform 0.2s linear;
--moz-transition: transform 0.2s linear;
--webkit-transition: transform 0.2s linear;
+    -webkit-transform-origin: top;
+    transition: transform 0.2s linear;
+    -moz-transition: transform 0.2s linear;
+    -webkit-transition: transform 0.2s linear;
 }
-
-.envelope-container{
+.envelope-container {
     position: absolute;
     top: 197px;
     right: 353px;
@@ -243,207 +195,195 @@ footer {
     -webkit-transform: rotate3d(-7, -6, -4, 60deg);
     z-index: 4;
 }
-
- #card-wrapper{
-/*  transform: rotate3d(-7, -6, -4, 60deg);
+#card-wrapper {
+    /*  transform: rotate3d(-7, -6, -4, 60deg);
 -moz-transform: rotate3d(-7, -6, -4, 60deg);
 -webkit-transform: rotate3d(-7, -6, -4, 60deg); */
-z-index: 1;
-}
 
-.card-container{
+    z-index: 1;
+}
+.card-container {
     position: relative;
     transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
     -webkit-transform-style: preserve-3d;
     z-index: 3;
 }
-
- .envelope{
-    animation: envelopeOpen 0.2s linear;
+.envelope {
+    animation: envelopeOpen 0.5s linear;
     animation-fill-mode: forwards;
 }
-
- .envelope-container{
-    animation: envelopeContainerZindex 0.2s linear;
+ .envelope-container {
+    animation: envelopeContainerZindex 0.5s linear;
     animation-fill-mode: forwards;
 }
-
- #card{
-animation: cardGrow 2s linear;
-animation-fill-mode: forwards;
-
+ #card {
+    animation: cardGrow 2s linear;
+    animation-fill-mode: forwards;
 }
-
- .square{
+ .square {
     height: 200px;
     width: 200px;
     background: #000;
 }
-
- .card-container{
-    animation: cardMove 1.5s cubic-bezier(.17,.67,.83,.67);
+ .card-container {
+    animation: cardMove 1.5s cubic-bezier(.17, .67, .83, .67);
     animation-fill-mode: forwards;
 }
-
- .background{
+ .background {
     animation: backgroundAnim 1.5s linear;
     animation-fill-mode: forwards;
 }
-
 .hide {
-  display: none;
+    display: none;
 }
-
-#card.open-half2 #card-front{
-        transform: rotateY(-145deg);
-   -moz-transform: rotateY(-145deg);
--webkit-transform: rotateY(-145deg);
+#card.open-half2 #card-front {
+    transform: rotateY(-145deg);
+    -moz-transform: rotateY(-145deg);
+    -webkit-transform: rotateY(-145deg);
 }
-
-#card.open-half2 #card-inside,
-#card.close-half #card-inside{
+#card.open-half2 #card-inside, #card.close-half #card-inside {
     transform: rotateY(0deg);
--moz-transform: rotateY(0deg);
--webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
 }
-
 #card.open-fully2 #card-front {
     transform: rotateY(-110deg);
     -moz-transform: rotateY(-110deg);
     -webkit-transform: rotateY(-110deg);
 }
-
-#card.open-fully2 #card-inside{
+#card.open-fully2 #card-inside {
     transform: rotateY(0deg);
     -moz-transform: rotateY(0deg);
     -webkit-transform: rotateY(0deg);
 }
 
-#card.open-fully2 #card-front {
-  background: #FFEFEF;
+#card.close-half #front-inside{
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
 }
 
-#card.open-half2 #card-front {
-    background: #FFEFEF;
+#card.open-fully #front-inside{
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
 }
 
-.move1{
+#card.open-half2 #front-inside{
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}
+
+#card.open-fully2 #front-inside{
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}
+
+.move1 {
     margin-left: 500px;
 }
-
-.move2{
+.move2 {
     margin-left: 0px;
 }
-
-.controls{
+.controls {
     z-index: 999;
-    position:absolute;
+    position: absolute;
 }
-
-
 @keyframes envelopeOpen {
-     0%
-        {
-            transform: rotateX(0deg);
-        }
-
-     100%
-         {
-             transform: rotateX(180deg);
-         }
+    0% {
+        transform: rotateX(0deg);
+    }
+    100% {
+        transform: rotateX(180deg);
+    }
 }
-
 @keyframes cardMove {
-    0%
-        {
-            transform: translate3d(0px);
-            -moz-transform: tanslate3d(0px);
-            -webkit-transform: tanslate3d(0px);
-        }
-
-    10%
-        {
-            transform: translate3d(-0px,-0px,0px);
-            -moz-transform: tanslate3d(-0px,-0px,0px);
-            -webkit-transform: tanslate3d(-0px,-0px,0px);
-        }
-
-    25%
-        {
-            transform: translate3d(-190px,-250px,30px);
-            -moz-transform: tanslate3d(-190px,-250px,30px);
-            -webkit-transform: tanslate3d(-190px,-250px,30px);
-        }
-
-    100%
-        {
-            transform: translate3d(-50px,50px,0px);
-            -moz-transform: tanslate3d(-50px,50px,0px);
-            -webkit-transform: tanslate3d(-50px,50px,0px);
-        }
+    0% {
+        transform: translate3d(0px);
+        -moz-transform: tanslate3d(0px);
+        -webkit-transform: tanslate3d(0px);
+    }
+    10% {
+        transform: translate3d(-0px, -0px, 0px);
+        -moz-transform: tanslate3d(-0px, -0px, 0px);
+        -webkit-transform: tanslate3d(-0px, -0px, 0px);
+    }
+    25% {
+        transform: translate3d(-190px, -250px, 30px);
+        -moz-transform: tanslate3d(-190px, -250px, 30px);
+        -webkit-transform: tanslate3d(-190px, -250px, 30px);
+    }
+    100% {
+        transform: translate3d(-50px, 50px, 0px);
+        -moz-transform: tanslate3d(-50px, 50px, 0px);
+        -webkit-transform: tanslate3d(-50px, 50px, 0px);
+    }
 }
-
 @keyframes cardGrow {
-    0%    {
-            transform: rotate3d(-7, -6, -4, 60deg);
-           -moz-transform: rotate3d(-7, -6, -4, 60deg);
-           -webkit-transform: rotate3d(-7, -6, -4, 60deg);
-          }
-
-    30%   {
-            transform: rotate3d(-7, -6, -4, 60deg);
-           -moz-transform: rotate3d(-7, -6, -4, 60deg);
-           -webkit-transform: rotate3d(-7, -6, -4, 60deg);
-          }
-
-    80%  {
-            transform: rotate3d(0, 0, 0, 0deg);
-            -moz-transform: rotate3d(0, 0, 0, 0deg);
-            -webkit-transform: rotate3d(0, 0, 0, 0deg);
-          }
-
-    100%
-        {
-            transform: rotate3d(0, 0, 0, 0deg);
-            -moz-transform: rotate3d(0, 0, 0, 0deg);
-            -webkit-transform: rotate3d(0, 0, 0, 0deg);
-        }
+    0% {
+        transform: rotate3d(-7, -6, -4, 60deg);
+        -moz-transform: rotate3d(-7, -6, -4, 60deg);
+        -webkit-transform: rotate3d(-7, -6, -4, 60deg);
+    }
+    30% {
+        transform: rotate3d(-7, -6, -4, 60deg);
+        -moz-transform: rotate3d(-7, -6, -4, 60deg);
+        -webkit-transform: rotate3d(-7, -6, -4, 60deg);
+    }
+    80% {
+        transform: rotate3d(0, 0, 0, 0deg);
+        -moz-transform: rotate3d(0, 0, 0, 0deg);
+        -webkit-transform: rotate3d(0, 0, 0, 0deg);
+    }
+    100% {
+        transform: rotate3d(0, 0, 0, 0deg);
+        -moz-transform: rotate3d(0, 0, 0, 0deg);
+        -webkit-transform: rotate3d(0, 0, 0, 0deg);
+    }
 }
-
 @keyframes envelopeContainerZindex {
-
-    0%{
-        z-index: 4;
+    0% {
+        z-index: 5;
     }
-
-    50%{
-        z-index: 4;
+    50% {
+        z-index: 5;
     }
-
-    100%{
+    51%{
         z-index: 2;
     }
-
+    100% {
+        z-index: 2;
+    }
 }
-
 @keyframes backgroundAnim {
-    0%{
+    0% {
         opacity: 0;
         transform: rotateZ(-180deg);
     }
-
-    25%{
+    25% {
         opacity: 0.25;
         transform: rotateZ(-135deg);
     }
-
-    75%{
+    75% {
         opacity: 0.75;
         transform: rotateZ(-45deg);
     }
-
-    100%{
+    100% {
         opacity: 1;
         transform: rotateZ(0deg);
     }
